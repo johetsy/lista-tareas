@@ -8,8 +8,21 @@
 
 <body>
   <div class="container">
-      {% block content %} {% endblock%}  
- </div> 
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <div class="d-flex align-items-center">
+          {% if user.is_authenticated %}
+          <strong>Hola {{ user.username }}</strong>
+          <a class="btn btn-danger" href="/cerrar-sesion"> Cerrar Sesion</a>
+          {% else %}
+          <a class="btn btn-danger" href="/iniciar-sesion"> Iniciar Sesion</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    {% block content %} {% endblock%}  
+  </div> 
 </body>
   
 
